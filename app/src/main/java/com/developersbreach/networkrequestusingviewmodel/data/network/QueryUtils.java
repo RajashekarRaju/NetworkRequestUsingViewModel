@@ -48,7 +48,7 @@ public class QueryUtils {
     private static final String APPEND_PATH_SECOND = "movie";
     private static final String POPULAR_MOVIE_PATH = "popular";
     private static final String API_PARAM = "api_key";
-    private static final String API_KEY = "d77b5ab884174f60f4c9e8f50a70d99c";
+    private static final String API_KEY = "YOUR_API_KEY";
 
     /**
      * Builds Uri used to fetch movie data from the server. This data is based on the query
