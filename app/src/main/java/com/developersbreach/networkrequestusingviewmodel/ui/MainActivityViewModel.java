@@ -1,26 +1,25 @@
-package com.developersbreach.networkrequestusingviewmodel.viewModel;
+package com.developersbreach.networkrequestusingviewmodel.ui;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-
 import com.developersbreach.networkrequestusingviewmodel.data.MovieRepository;
-import com.developersbreach.networkrequestusingviewmodel.data.model.Movie;
+import com.developersbreach.networkrequestusingviewmodel.model.Movie;
 
 import java.util.List;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
-    private static LiveData<List<Movie>> mMutableLiveData;
+    private static LiveData<List<Movie>> mMediatorLiveData;
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        mMutableLiveData = MovieRepository.getInstance().getMediatorLiveData();
+        mMediatorLiveData = MovieRepository.getInstance().getMediatorLiveData();
     }
 
-    public LiveData<List<Movie>> getMutableLiveData() {
-        return mMutableLiveData;
+    LiveData<List<Movie>> getMediatorLiveData() {
+        return mMediatorLiveData;
     }
 }

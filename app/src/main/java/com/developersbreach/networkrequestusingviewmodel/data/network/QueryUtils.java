@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.developersbreach.networkrequestusingviewmodel.data.model.Movie;
+import com.developersbreach.networkrequestusingviewmodel.model.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +48,7 @@ public class QueryUtils {
     private static final String APPEND_PATH_SECOND = "movie";
     private static final String POPULAR_MOVIE_PATH = "popular";
     private static final String API_PARAM = "api_key";
-    private static final String API_KEY = "YOUR_API_KEY";
+    public static final String API_KEY = "d77b5ab884174f60f4c9e8f50a70d99c";
 
     /**
      * Builds Uri used to fetch movie data from the server. This data is based on the query

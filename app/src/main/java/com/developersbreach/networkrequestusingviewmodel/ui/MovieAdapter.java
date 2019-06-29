@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.developersbreach.networkrequestusingviewmodel.R;
-import com.developersbreach.networkrequestusingviewmodel.data.model.Movie;
+import com.developersbreach.networkrequestusingviewmodel.model.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -59,7 +59,7 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MovieAdapter.MovieViewHolder holder, int position) {
         Movie movie = mMoviesList.get(position);
-        holder.mTitleTextView.setText(movie.getTitle());
+        holder.mTitleTextView.setText(movie.getMovieTitle());
         Picasso.get().load(movie.getImageView()).into(holder.mPosterImageView);
     }
 

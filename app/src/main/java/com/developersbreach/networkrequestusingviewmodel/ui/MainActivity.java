@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 
 import com.developersbreach.networkrequestusingviewmodel.R;
-import com.developersbreach.networkrequestusingviewmodel.data.model.Movie;
-import com.developersbreach.networkrequestusingviewmodel.viewModel.MainActivityViewModel;
+import com.developersbreach.networkrequestusingviewmodel.model.Movie;
+import com.developersbreach.networkrequestusingviewmodel.data.network.QueryUtils;
 
 import java.util.List;
 
@@ -43,17 +43,28 @@ public class MainActivity extends AppCompatActivity {
         mMovieRecyclerView.setAdapter(mMovieAdapter);
 
         MainActivityViewModel model = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        model.getMutableLiveData().observe(this, new Observer<List<Movie>>() {
+        model.getMediatorLiveData().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
                 if (movies.size() != 0) {
                     showData();
                     mMovieAdapter.setMovieData(movies);
                 } else {
-                    showError();
+                    showApiError();
                 }
             }
         });
+    }
+
+    private void showApiError() {
+        if (QueryUtils.API_KEY.equals("YOUR_API_KEY")) {
+            mNoInternetConnectionTextView.setVisibility(View.VISIBLE);
+            mNoInternetConnectionTextView.setText(getResources().getString(R.string.api_key_error_text));
+            mLoadingBar.setVisibility(View.GONE);
+            mMovieRecyclerView.setVisibility(View.GONE);
+        } else {
+            showError();
+        }
     }
 
     private void showData() {

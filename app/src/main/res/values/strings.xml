@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NetworkRequestUsingViewModel</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="api_key_error_text">Add Your Api Key in QueryUtils.java class</string>
 </resources>
